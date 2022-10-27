@@ -12,17 +12,16 @@ import {Boliger} from "../src/conts/boliger";
 // Her igennem bestemmes det, hvad der skal vises for brugeren
 const content = Boliger.map((Bolig)=>
     <View key={Bolig.id} >
-        <Text style={{fontWeight: "bold" , fontSize: 20, margin: 10, alignItems: "center"}} >{Bolig.title}</Text>
-        <Text style={{alignItems: "center", fontWeight: "bold"}}>{Bolig.location}</Text>
-        <Image alt="Billede af lejlighed" style={{
+        <Text style={{fontWeight: "bold" , fontSize: 20, margin: 10, alignSelf: "center"}} >{Bolig.title}</Text>
+        <Text style={{alignSelf: "center", fontWeight: "bold", fontSize: 16}}>{Bolig.location}</Text>
+        <Image alt="Billede af lejlighed" source={Bolig.image} style={{
             justifyContent: "center",
-            alignItems: "center",
-            height: 120,
-            width: 250,
-            margin: 10
-        }}
-             source={Bolig.image}></Image>
-        <Text align={"center"}>{Bolig.details}</Text>
+            alignSelf: "center",
+            height: 170,
+            width: 300,
+            margin: 5
+        }}></Image>
+        <Text style={{ alignSelf:"center", margin: 3}}>{Bolig.details}</Text>
     </View>
 )
 
@@ -33,13 +32,13 @@ const content = Boliger.map((Bolig)=>
 const HomeScreen =({navigation}) =>{
     return(
         <SafeAreaView styles={styles.contentContainer}>
-            <View styles={{flex:1, justifyContent: 'center'}}>
+            {/* <View styles={{flex:1, justifyContent: 'center'}}>
                 <Pressable style={styles.button} onPress={()=> navigation.navigate("ProfileScreen")}>
                     <View>
                         <Text styles={styles.buttontext}> Rediger din profil</Text>
                     </View>
                 </Pressable>
-            </View>
+            </View>*/}
             <ScrollView contentContainerStyle={styles.content}>
                <View>
                    {content}

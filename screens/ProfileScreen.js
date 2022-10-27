@@ -1,49 +1,57 @@
 //importer de basale pakker fra react native
-import {Pressable, StyleSheet, Text, View} from "react-native";
-import * as React from "react";
-import Farver from "../src/conts/farver";
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput, Text, Image } from "react-native";
 
-//Opretter en meget simpelt komponent, der blot vises simpel tekst og har en button, som fører tilbage til home.
-// Dette view er lavet til videre udvikling på appen.
-const ProfileScreen =({navigation}) =>{
+
+const UselessTextInput = () => {
+    const [text, onChangeText] = React.useState("John doe");
+    const [number, onChangeNumber] = React.useState(null);
+
     return (
-        <View style={styles.container}>
-            <Pressable style={styles.button} onPress={()=> navigation.navigate("HomeScreen")}>
-                <View>
-                    <Text styles={styles.buttontext}> Tilbage til home</Text>
-                </View>
-            </Pressable>
-            <Text style={styles.text}>Her vil du i fremtiden kunne redigere din profil</Text>
-        </View>
+        <SafeAreaView>
+            <Image
+                style={{
+                    height:"45%", width: "70%", alignSelf: "center", justifyContent: "center"
+                }}
+                source={{
+                    uri: 'https://st4.depositphotos.com/1000507/24488/v/600/depositphotos_244889634-stock-illustration-user-profile-picture-isolate-background.jpg',
+                }}
+            />
+            <Text style={styles.title}>
+                Her kan du opdatere dit navn
+            </Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+            />
+            <Text style={styles.title}>
+                Her kan du opdatere dit mobil nummer
+            </Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeNumber}
+                value={number}
+                keyboardType="numeric"
+            />
+        </SafeAreaView>
     );
-}
+};
 
-export default ProfileScreen
-
-//styling
 const styles = StyleSheet.create({
-    container: {
-        paddingTop:100,
-        paddingBottom:100,
-        borderWidth: 20,
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: Farver.grey,
-        height:'100%'
+    input: {
+        height: 50,
+        margin: 12,
+        borderWidth: 2,
+        padding: 8,
+        marginHorizontal: 10,
     },
-    button: {
-        justifyContent: "center",
-        alignItems: "center",
-        height: 60,
-        backgroundColor: Farver.blue,
-    },
-    text: {
-        fontSize: 16,
-        color: "black",
-    },
-    buttontext:{
-        color: Farver.white,
-        fontSize: 12,
+    title: {
+        fontStyle: "normal",
+        fontWeight: "bold",
+        fontSize: "18",
+        margin: 3,
     }
 });
+
+export default UselessTextInput;
