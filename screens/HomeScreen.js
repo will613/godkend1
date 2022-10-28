@@ -32,13 +32,6 @@ const content = Boliger.map((Bolig)=>
 const HomeScreen =({navigation}) =>{
     return(
         <SafeAreaView styles={styles.contentContainer}>
-            {/* <View styles={{flex:1, justifyContent: 'center'}}>
-                <Pressable style={styles.button} onPress={()=> navigation.navigate("ProfileScreen")}>
-                    <View>
-                        <Text styles={styles.buttontext}> Rediger din profil</Text>
-                    </View>
-                </Pressable>
-            </View>*/}
             <ScrollView contentContainerStyle={styles.content}>
                <View>
                    {content}

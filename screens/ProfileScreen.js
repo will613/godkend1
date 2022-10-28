@@ -9,6 +9,10 @@ const UselessTextInput = () => {
 
     return (
         <SafeAreaView>
+            {/* Her indsættes et standard billede,
+            som oftes bruges på sociale medier når personen
+            gerne vil have et anonymt profil billede
+            */}
             <Image
                 style={{
                     height:"45%", width: "70%", alignSelf: "center", justifyContent: "center"
@@ -17,9 +21,16 @@ const UselessTextInput = () => {
                     uri: 'https://st4.depositphotos.com/1000507/24488/v/600/depositphotos_244889634-stock-illustration-user-profile-picture-isolate-background.jpg',
                 }}
             />
+            {/* I fremtiden vil man her kunne opdatere sine brugers oplysninger
+            Lige nu virker funktionaliteten i præcist ikke,
+            da man ikke kan logge/oprette brugere på appen endnu
+            */}
             <Text style={styles.title}>
                 Her kan du opdatere dit navn
             </Text>
+            {/* Laver en simple onchangetext, så man kan forestille sig,
+            hvordan ville se ud med den rigtige funktionalitet
+            */}
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
@@ -28,6 +39,9 @@ const UselessTextInput = () => {
             <Text style={styles.title}>
                 Her kan du opdatere dit mobil nummer
             </Text>
+            {/* Igen en onchangetext, bare med tal denne gang.
+            Her skal man i fremtiden kunne opdatere sit nummer knyttet på kontoen
+            */}
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeNumber}
